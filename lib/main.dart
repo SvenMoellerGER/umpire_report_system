@@ -18,17 +18,6 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Start'),
       ),
-      // body: Center(
-      //   child: ElevatedButton(
-      //     child: const Text('Open route'),
-      //     onPressed: () {
-      //       Navigator.push(
-      //         context,
-      //         MaterialPageRoute(builder: (context) => const neuerVorfall()),
-      //       );
-      //     },
-      //   ),
-      // ),
       floatingActionButton: FloatingActionButton(
         onPressed:  () {
           Navigator.push(
@@ -42,18 +31,6 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       // theme: ThemeData(
-//       //   primarySwatch: Colors.blue,
-//       ),
-//       //home: formAllg(title: 'Flutter Formular'),
-//     );
-//   }
-// }
 
 class formAllg extends StatefulWidget {
   formAllg({Key? key, required this.title}) : super(key: key);
