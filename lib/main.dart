@@ -192,7 +192,10 @@ class _formOrt extends State<formOrt> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+        appBar: AppBar(
+          title: Text('Ort des Geschehens'),
+        ),
+        body: SingleChildScrollView(
         child: Form(
           key: _formKey,
             child: Padding(
@@ -326,6 +329,9 @@ class _formAthlet extends State<formAthlet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Athlet'),
+        ),
         body: SingleChildScrollView(
           child: Form(
           key: _formKey,
@@ -368,6 +374,12 @@ class _formAthlet extends State<formAthlet> {
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly,
                     ],
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Bitte eine Startnummer eingeben';
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: 30),
                   DropdownButton<String>(
@@ -432,7 +444,7 @@ class _formAthlet extends State<formAthlet> {
                                 "Formular ist gültig und kann verarbeitet werden");
                             {
                               Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => formVorfall()),);  //TODO Seite einfügen
+                                MaterialPageRoute(builder: (context) => formVorfall()),);
                             };
                           } else {
                           print("Formular ist nicht gültig");
@@ -468,6 +480,9 @@ class _formVorfall extends State<formVorfall> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Vorfall'),
+        ),
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -619,6 +634,9 @@ class _formVorfall_unerlUnterst extends State<formVorfall_unerlUnterst> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Vorfall: unerlaubte Unterstützung'),
+        ),
         body: SingleChildScrollView(
             child: Form(
                 key: _formKey,
@@ -634,6 +652,12 @@ class _formVorfall_unerlUnterst extends State<formVorfall_unerlUnterst> {
                             hintText: 'kurze Erläuterung',
                             border: OutlineInputBorder(),
                           ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Bitte den Sachverhalt erläutern';
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 30),
                         Row(
@@ -697,6 +721,9 @@ class _formVorfall_behinderung extends State<formVorfall_behinderung> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Vorfall: Behinderung'),
+        ),
         body: SingleChildScrollView(
             child: Form(
                 key: _formKey,
@@ -708,14 +735,21 @@ class _formVorfall_behinderung extends State<formVorfall_behinderung> {
                         TextFormField(
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: 'Start Nr.',
-                            hintText: 'behinderte StNR',
+                            labelText: 'behinderte Start Nr.',
+                            hintText: 'behinderte Start Nr.',
                             border: OutlineInputBorder(),
                           ),
                           inputFormatters: <TextInputFormatter>[
                             FilteringTextInputFormatter.digitsOnly,
                           ],
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Bitte eine Startnummer eingeben';
+                            }
+                            return null;
+                          },
                         ),
+                        SizedBox(height: 30),
                         TextFormField(
                           maxLines: 5,
                           maxLength: 120,
@@ -723,6 +757,12 @@ class _formVorfall_behinderung extends State<formVorfall_behinderung> {
                             hintText: 'kurze Erläuterung',
                             border: OutlineInputBorder(),
                           ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Bitte den Sachverhalt erläutern';
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 30),
                         Row(
@@ -787,6 +827,9 @@ class _formVorfall_bahnVerlassen extends State<formVorfall_bahnVerlassen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Vorfall: Bahn verlassen'),
+        ),
         body: SingleChildScrollView(
             child: Form(
                 key: _formKey,
@@ -848,11 +891,35 @@ class _formVorfall_bahnVerlassen extends State<formVorfall_bahnVerlassen> {
                         ),
                         SizedBox(height: 30),
                         // TODO Row mit 2x checkbox ("innen" und "außen verlassen")
-                        SizedBox(height: 30),
-                        // TODO 2x Textfeld (number) für Länge bzw. Schritte
+                        //SizedBox(height: 30),
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            labelText: 'Länge in [m]',
+                            border: OutlineInputBorder(),
+                          ),
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                          // TODO validator implementieren
+                        ),
+                        SizedBox(height: 10),
+                        Text('bzw.'),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            labelText: 'Anzahl Schritte',
+                            border: OutlineInputBorder(),
+                          ),
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                          // TODO validator implementieren
+                        ),
                         SizedBox(height: 30),
                         // TODO 1x Textfeld (number) für Länge
-                        SizedBox(height: 30),
+                        //SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -915,6 +982,9 @@ class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Vorfall: Hürdenlauf/Hindernis'),
+        ),
         body: SingleChildScrollView(
             child: Form(
                 key: _formKey,
@@ -984,10 +1054,26 @@ class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHin
                           ),
                         ),
                         SizedBox(height: 30),
-                        // TODO 1x Textfeld (number) für Nr.der Hürde/ Hindernis
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            labelText: 'Hürde Nr.',
+                            hintText: 'immer vom Start aus gezählt',
+                            border: OutlineInputBorder(),
+                          ),
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Bitte die Nr. der Hürde eingeben';
+                            }
+                            return null;
+                          },
+                        ),
                         SizedBox(height: 30),
                         // TODO Row mit 2x checkbox "Hand" und "mit dem Fuß"
-                        SizedBox(height: 30),
+                        //SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -1050,6 +1136,9 @@ class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Vorfall: Sonstiges'),
+        ),
         body: SingleChildScrollView(
             child: Form(
                 key: _formKey,
@@ -1103,6 +1192,12 @@ class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
                             hintText: 'kurze Erläuterung',
                             border: OutlineInputBorder(),
                           ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Bitte den Sachverhalt erläutern';
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 30),
                         Row(
@@ -1151,15 +1246,6 @@ class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
   }
 }
 
-
-
-
-
-
-
-
-
-
 class formBahnrichter extends StatefulWidget {
   const formBahnrichter({Key? key}) : super(key: key);
 
@@ -1174,6 +1260,9 @@ class _formBahnrichter extends State<formBahnrichter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('Dein Name'),
+        ),
         body: SingleChildScrollView(
           child: Form(
           key: _formKey,
@@ -1189,6 +1278,12 @@ class _formBahnrichter extends State<formBahnrichter> {
                       hintText: 'Dein Name',
                       border: OutlineInputBorder(),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Bitte gib deinen Namen ein';
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: 30),
                   Row(
