@@ -1057,7 +1057,7 @@ class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHin
                         TextFormField(
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: 'Hürde Nr.',
+                            labelText: 'Hürde/Hindernis Nr.',
                             hintText: 'immer vom Start aus gezählt',
                             border: OutlineInputBorder(),
                           ),
