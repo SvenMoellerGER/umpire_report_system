@@ -463,6 +463,8 @@ class _formVorfall extends State<formVorfall> {
   SingingCharacter? _character = SingingCharacter.unerlUnterst;
   final _formKey = GlobalKey<FormState>();
 
+  get value => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -560,23 +562,29 @@ class _formVorfall extends State<formVorfall> {
                           if (_formKey.currentState!.validate()) {
                             print(
                                 "Formular ist gültig und kann verarbeitet werden");
-                            //TODO if else
-                            // {
-                            //   if (.checked) {
-                            //     print('The weather is amazing!');
-                            //   } else if(inPortland && isSpring) {
-                            //     print('Torrential downpour.');
-                            //   } else if(inPortland && isAutumn) {
-                            //     print('Torrential downpour.');
-                            //   } else if(inPortland && isWinter) {
-                            //     print('Torrential downpour.');
-                            //   } else {
-                            //     Navigator.push(context,
-                            //       MaterialPageRoute(builder: (context) => formBahnrichter()),);
-                            //   }
-                            // };
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => formBahnrichter()));
+                            {
+                              print('value ' + _character.toString());
+                              if (_character == SingingCharacter.unerlUnterst) {
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => formVorfall_unerlUnterst()),);
+                              } else if(_character == SingingCharacter.behinderung) {
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => formVorfall_behinderung()),);
+                              } else if(_character == SingingCharacter.bahnVerlassen) {
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => formVorfall_bahnVerlassen()),);
+                              } else if(_character == SingingCharacter.huerdenlauf) {
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => formVorfall_huerdenlaufHindernis()),);
+                              } else if(_character == SingingCharacter.sonstiges) {
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => formVorfall_sonstiges()),);
+                              } else {
+                                print("### Hier ist etwas schief gelaufen!");
+                                Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                              }
+                            }
                           } else {
                           print("Formular ist nicht gültig");
                           }
