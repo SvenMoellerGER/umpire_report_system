@@ -9,7 +9,7 @@ void main() {
   ));
 }
 
-enum SingingCharacter { zielgerade, gegengerade, kurvenachdemstart, kurvevordemziel,
+enum SingingCharacter { protokollBahn, protokollWechsel, zielgerade, gegengerade, kurvenachdemstart, kurvevordemziel,
   unerlUnterst, behinderung, bahnVerlassen, huerdenlauf, hindernis, sonstiges, eigeneBahn,
   bordkante, bahnVorUebergangslinie, bahnVerlassenGruppenstart, 
   hueNebenbahn, hueUeberlaufen, hueNichtRegelgerechtUeberlaufen, hueUmgestossen, hiNichtRegelgerechtUeberlaufen }
@@ -177,6 +177,105 @@ class _formAllg extends State<formAllg> {
 }
 
 /// This is the stateful widget that the main application instantiates.
+class formProtokoll extends StatefulWidget {
+  const formProtokoll({Key? key}) : super(key: key);
+
+  @override
+  State<formProtokoll> createState() => _formProtokoll();
+}
+
+/// This is the private State class that goes with formProtokoll.
+class _formProtokoll extends State<formProtokoll> {
+  SingingCharacter? _character = SingingCharacter.protokollBahn;
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Protokollart'),
+        ),
+        body: SingleChildScrollView(
+            child: Form(
+                key: _formKey,
+                child: Padding(
+                  padding: const EdgeInsets.all(50),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        ListTile(
+                          title: const Text('Bahnrichterprotokoll'),
+                          leading: Radio<SingingCharacter>(
+                            value: SingingCharacter.protokollBahn,
+                            groupValue: _character,
+                            onChanged: (SingingCharacter? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                        ),
+                        ListTile(
+                          title: const Text('Wechselrichterprotokoll'),
+                          leading: Radio<SingingCharacter>(
+                            value: SingingCharacter.protokollWechsel,
+                            groupValue: _character,
+                            onChanged: (SingingCharacter? value) {
+                              setState(() {
+                                _character = value;
+                              });
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.grey,
+                                  textStyle: TextStyle(color: Colors.white)),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => formAllg(title: 'formAllg',)), // TODO 'title' entfernen
+                                );
+                              },
+                              child: Text('Zurueck'),
+                            ),
+                            SizedBox(width: 25),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.blue,
+                                  textStyle: TextStyle(color: Colors.white)),
+                              onPressed: () {
+                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
+                                if (_formKey.currentState!.validate()) {
+                                  print("Formular ist gültig und kann verarbeitet werden");
+                                  if(_character == SingingCharacter.protokollBahn) {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => formBahnOrt()));
+                                  } else {
+                                    // TODO Seiten für Wechselprotokoll erstellen
+                                    //  Navigator.push(context, MaterialPageRoute(builder: (context) => formWechselVorfall()));
+                                }
+                                } else {
+                                  print("Formular ist nicht gültig");
+                                }
+                              },
+                              child: Text('Weiter'),
+                            )
+                          ],
+                        )
+                      ]
+                  ),
+                )
+            )
+        )
+    );
+  }
+}
+
+/// This is the stateful widget that the main application instantiates.
 class formBahnOrt extends StatefulWidget {
   const formBahnOrt({Key? key}) : super(key: key);
 
@@ -271,7 +370,7 @@ class _formBahnOrt extends State<formBahnOrt> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => formAllg(title: 'formAllg',)),
+                              MaterialPageRoute(builder: (context) => formProtokoll()),
                             );
                           },
                           child: Text('Zurueck'),
