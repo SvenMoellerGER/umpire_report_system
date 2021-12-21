@@ -157,7 +157,7 @@ class _formAllg extends State<formAllg> {
                                 "Formular ist gültig und kann verarbeitet werden");
                             {
                               Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => formOrt()),
+                                MaterialPageRoute(builder: (context) => formBahnOrt()),
                               );
                             };
                           } else {
@@ -177,15 +177,15 @@ class _formAllg extends State<formAllg> {
 }
 
 /// This is the stateful widget that the main application instantiates.
-class formOrt extends StatefulWidget {
-  const formOrt({Key? key}) : super(key: key);
+class formBahnOrt extends StatefulWidget {
+  const formBahnOrt({Key? key}) : super(key: key);
 
   @override
-  State<formOrt> createState() => _formOrt();
+  State<formBahnOrt> createState() => _formBahnOrt();
 }
 
-/// This is the private State class that goes with formOrt.
-class _formOrt extends State<formOrt> {
+/// This is the private State class that goes with formBahnOrt.
+class _formBahnOrt extends State<formBahnOrt> {
   SingingCharacter? _character = SingingCharacter.zielgerade;
   final _formKey = GlobalKey<FormState>();
 
@@ -288,7 +288,7 @@ class _formOrt extends State<formOrt> {
                                   "Formular ist gültig und kann verarbeitet werden");
                               {
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formAthlet()),);
+                                  MaterialPageRoute(builder: (context) => formBahnAthlet()),);
                               };
                             } else {
                             print("Formular ist nicht gültig");
@@ -310,15 +310,15 @@ class _formOrt extends State<formOrt> {
 // enum SingingCharacter { laeufer, geher }
 
 /// This is the stateful widget that the main application instantiates.
-class formAthlet extends StatefulWidget {
-  const formAthlet({Key? key}) : super(key: key);
+class formBahnAthlet extends StatefulWidget {
+  const formBahnAthlet({Key? key}) : super(key: key);
 
   @override
-  State<formAthlet> createState() => _formAthlet();
+  State<formBahnAthlet> createState() => _formBahnAthlet();
 }
 
-/// This is the private State class that goes with formAthlet.
-class _formAthlet extends State<formAthlet> {
+/// This is the private State class that goes with formBahnAthlet.
+class _formBahnAthlet extends State<formBahnAthlet> {
   // SingingCharacter? _character = SingingCharacter.zielgerade;
   // bool _value = false;
   int val = -1;
@@ -427,7 +427,7 @@ class _formAthlet extends State<formAthlet> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => formOrt()),
+                            MaterialPageRoute(builder: (context) => formBahnOrt()),
                           );
                         },
                         child: Text('Zurueck'),
@@ -444,7 +444,7 @@ class _formAthlet extends State<formAthlet> {
                                 "Formular ist gültig und kann verarbeitet werden");
                             {
                               Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => formVorfall()),);
+                                MaterialPageRoute(builder: (context) => formBahnVorfall()),);
                             };
                           } else {
                           print("Formular ist nicht gültig");
@@ -463,15 +463,15 @@ class _formAthlet extends State<formAthlet> {
   }
 }
 
-class formVorfall extends StatefulWidget {
-  const formVorfall({Key? key}) : super(key: key);
+class formBahnVorfall extends StatefulWidget {
+  const formBahnVorfall({Key? key}) : super(key: key);
 
   @override
-  State<formVorfall> createState() => _formVorfall();
+  State<formBahnVorfall> createState() => _formBahnVorfall();
 }
 
-/// This is the private State class that goes with formVorfall.
-class _formVorfall extends State<formVorfall> {
+/// This is the private State class that goes with formBahnVorfall.
+class _formBahnVorfall extends State<formBahnVorfall> {
   SingingCharacter? _character = SingingCharacter.unerlUnterst;
   final _formKey = GlobalKey<FormState>();
 
@@ -562,7 +562,7 @@ class _formVorfall extends State<formVorfall> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => formAthlet()),
+                            MaterialPageRoute(builder: (context) => formBahnAthlet()),
                           );
                         },
                         child: Text('Zurueck'),
@@ -581,23 +581,23 @@ class _formVorfall extends State<formVorfall> {
                               print('value ' + _character.toString());
                               if (_character == SingingCharacter.unerlUnterst) {
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formVorfall_unerlUnterst()),);
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall_unerlUnterst()),);
                               } else if(_character == SingingCharacter.behinderung) {
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formVorfall_behinderung()),);
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall_behinderung()),);
                               } else if(_character == SingingCharacter.bahnVerlassen) {
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formVorfall_bahnVerlassen()),);
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall_bahnVerlassen()),);
                               } else if(_character == SingingCharacter.huerdenlauf) {
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formVorfall_huerdenlaufHindernis()),);
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall_huerdenlaufHindernis()),);
                               } else if(_character == SingingCharacter.sonstiges) {
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formVorfall_sonstiges()),);
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall_sonstiges()),);
                               } else {
                                 print("### Hier ist etwas schief gelaufen!");
                                 Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                                  MaterialPageRoute(builder: (context) => formNameKari()),);
                               }
                             }
                           } else {
@@ -620,15 +620,15 @@ class _formVorfall extends State<formVorfall> {
 // +++++ Auswahl des Verstoßes +++++
 
 /// This is the stateful widget that the main application instantiates.
-class formVorfall_unerlUnterst extends StatefulWidget {
-  const formVorfall_unerlUnterst({Key? key}) : super(key: key);
+class formBahnVorfall_unerlUnterst extends StatefulWidget {
+  const formBahnVorfall_unerlUnterst({Key? key}) : super(key: key);
 
   @override
-  State<formVorfall_unerlUnterst> createState() => _formVorfall_unerlUnterst();
+  State<formBahnVorfall_unerlUnterst> createState() => _formBahnVorfall_unerlUnterst();
 }
 
-/// This is the private State class that goes with formOrt.
-class _formVorfall_unerlUnterst extends State<formVorfall_unerlUnterst> {
+/// This is the private State class that goes with formBahnOrt.
+class _formBahnVorfall_unerlUnterst extends State<formBahnVorfall_unerlUnterst> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -670,7 +670,7 @@ class _formVorfall_unerlUnterst extends State<formVorfall_unerlUnterst> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => formVorfall()),
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
                                 );
                               },
                               child: Text('Zurueck'),
@@ -687,7 +687,7 @@ class _formVorfall_unerlUnterst extends State<formVorfall_unerlUnterst> {
                                       "Formular ist gültig und kann verarbeitet werden");
                                   {
                                     Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                                      MaterialPageRoute(builder: (context) => formNameKari()),);
                                   };
                                 } else {
                                   print("Formular ist nicht gültig");
@@ -707,15 +707,15 @@ class _formVorfall_unerlUnterst extends State<formVorfall_unerlUnterst> {
 }
 
 /// This is the stateful widget that the main application instantiates.
-class formVorfall_behinderung extends StatefulWidget {
-  const formVorfall_behinderung({Key? key}) : super(key: key);
+class formBahnVorfall_behinderung extends StatefulWidget {
+  const formBahnVorfall_behinderung({Key? key}) : super(key: key);
 
   @override
-  State<formVorfall_behinderung> createState() => _formVorfall_behinderung();
+  State<formBahnVorfall_behinderung> createState() => _formBahnVorfall_behinderung();
 }
 
-/// This is the private State class that goes with formOrt.
-class _formVorfall_behinderung extends State<formVorfall_behinderung> {
+/// This is the private State class that goes with formBahnOrt.
+class _formBahnVorfall_behinderung extends State<formBahnVorfall_behinderung> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -775,7 +775,7 @@ class _formVorfall_behinderung extends State<formVorfall_behinderung> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => formVorfall()),
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
                                 );
                               },
                               child: Text('Zurueck'),
@@ -792,7 +792,7 @@ class _formVorfall_behinderung extends State<formVorfall_behinderung> {
                                       "Formular ist gültig und kann verarbeitet werden");
                                   {
                                     Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                                      MaterialPageRoute(builder: (context) => formNameKari()),);
                                   };
                                 } else {
                                   print("Formular ist nicht gültig");
@@ -812,15 +812,15 @@ class _formVorfall_behinderung extends State<formVorfall_behinderung> {
 }
 
 /// This is the stateful widget that the main application instantiates.
-class formVorfall_bahnVerlassen extends StatefulWidget {
-  const formVorfall_bahnVerlassen({Key? key}) : super(key: key);
+class formBahnVorfall_bahnVerlassen extends StatefulWidget {
+  const formBahnVorfall_bahnVerlassen({Key? key}) : super(key: key);
 
   @override
-  State<formVorfall_bahnVerlassen> createState() => _formVorfall_bahnVerlassen();
+  State<formBahnVorfall_bahnVerlassen> createState() => _formBahnVorfall_bahnVerlassen();
 }
 
-/// This is the private State class that goes with formVorfall_bahnVerlassen.
-class _formVorfall_bahnVerlassen extends State<formVorfall_bahnVerlassen> {
+/// This is the private State class that goes with formBahnVorfall_bahnVerlassen.
+class _formBahnVorfall_bahnVerlassen extends State<formBahnVorfall_bahnVerlassen> {
   SingingCharacter? _character = SingingCharacter.eigeneBahn;
   final _formKey = GlobalKey<FormState>();
 
@@ -930,7 +930,7 @@ class _formVorfall_bahnVerlassen extends State<formVorfall_bahnVerlassen> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => formVorfall()),
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
                                 );
                               },
                               child: Text('Zurueck'),
@@ -947,7 +947,7 @@ class _formVorfall_bahnVerlassen extends State<formVorfall_bahnVerlassen> {
                                       "Formular ist gültig und kann verarbeitet werden");
                                   {
                                     Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                                      MaterialPageRoute(builder: (context) => formNameKari()),);
                                   };
                                 } else {
                                   print("Formular ist nicht gültig");
@@ -967,15 +967,15 @@ class _formVorfall_bahnVerlassen extends State<formVorfall_bahnVerlassen> {
 }
 
 /// This is the stateful widget that the main application instantiates.
-class formVorfall_huerdenlaufHindernis extends StatefulWidget {
-  const formVorfall_huerdenlaufHindernis({Key? key}) : super(key: key);
+class formBahnVorfall_huerdenlaufHindernis extends StatefulWidget {
+  const formBahnVorfall_huerdenlaufHindernis({Key? key}) : super(key: key);
 
   @override
-  State<formVorfall_huerdenlaufHindernis> createState() => _formVorfall_huerdenlaufHindernis();
+  State<formBahnVorfall_huerdenlaufHindernis> createState() => _formBahnVorfall_huerdenlaufHindernis();
 }
 
-/// This is the private State class that goes with formVorfall_huerdenlaufHindernis.
-class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHindernis> {
+/// This is the private State class that goes with formBahnVorfall_huerdenlaufHindernis.
+class _formBahnVorfall_huerdenlaufHindernis extends State<formBahnVorfall_huerdenlaufHindernis> {
   SingingCharacter? _character = SingingCharacter.hueNebenbahn;
   final _formKey = GlobalKey<FormState>();
 
@@ -1084,7 +1084,7 @@ class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHin
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => formVorfall()),
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
                                 );
                               },
                               child: Text('Zurueck'),
@@ -1101,7 +1101,7 @@ class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHin
                                       "Formular ist gültig und kann verarbeitet werden");
                                   {
                                     Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                                      MaterialPageRoute(builder: (context) => formNameKari()),);
                                   };
                                 } else {
                                   print("Formular ist nicht gültig");
@@ -1121,15 +1121,15 @@ class _formVorfall_huerdenlaufHindernis extends State<formVorfall_huerdenlaufHin
 }
 
 /// This is the stateful widget that the main application instantiates.
-class formVorfall_sonstiges extends StatefulWidget {
-  const formVorfall_sonstiges({Key? key}) : super(key: key);
+class formBahnVorfall_sonstiges extends StatefulWidget {
+  const formBahnVorfall_sonstiges({Key? key}) : super(key: key);
 
   @override
-  State<formVorfall_sonstiges> createState() => _formVorfall_sonstiges();
+  State<formBahnVorfall_sonstiges> createState() => _formBahnVorfall_sonstiges();
 }
 
-/// This is the private State class that goes with formVorfall_sonstiges.
-class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
+/// This is the private State class that goes with formBahnVorfall_sonstiges.
+class _formBahnVorfall_sonstiges extends State<formBahnVorfall_sonstiges> {
   SingingCharacter? _character = SingingCharacter.eigeneBahn;
   final _formKey = GlobalKey<FormState>();
 
@@ -1210,7 +1210,7 @@ class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => formVorfall()),
+                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
                                 );
                               },
                               child: Text('Zurueck'),
@@ -1227,7 +1227,7 @@ class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
                                       "Formular ist gültig und kann verarbeitet werden");
                                   {
                                     Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formBahnrichter()),);
+                                      MaterialPageRoute(builder: (context) => formNameKari()),);
                                   };
                                 } else {
                                   print("Formular ist nicht gültig");
@@ -1246,15 +1246,15 @@ class _formVorfall_sonstiges extends State<formVorfall_sonstiges> {
   }
 }
 
-class formBahnrichter extends StatefulWidget {
-  const formBahnrichter({Key? key}) : super(key: key);
+class formNameKari extends StatefulWidget {
+  const formNameKari({Key? key}) : super(key: key);
 
   @override
-  State<formBahnrichter> createState() => _formBahnrichter();
+  State<formNameKari> createState() => _formNameKari();
 }
 
-/// This is the private State class that goes with formBahnrichter.
-class _formBahnrichter extends State<formBahnrichter> {
+/// This is the private State class that goes with formNameKari.
+class _formNameKari extends State<formNameKari> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -1296,7 +1296,7 @@ class _formBahnrichter extends State<formBahnrichter> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => formVorfall()),
+                            MaterialPageRoute(builder: (context) => formBahnVorfall()),
                           );
                         },
                         child: Text('Zurueck'),
