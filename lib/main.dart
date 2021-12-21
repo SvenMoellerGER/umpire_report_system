@@ -123,7 +123,7 @@ class _formAllg extends State<formAllg> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _selectTime,
-                    child: Text('SELECT TIME'),
+                    child: Text('Uhrzeit'),
                   ),
                   SizedBox(height: 8),
                   Text(
