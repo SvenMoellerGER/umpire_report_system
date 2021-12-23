@@ -151,7 +151,6 @@ class _formAllg extends State<formAllg> {
                             primary: Colors.blue,
                             textStyle: TextStyle(color: Colors.white)),
                         onPressed: () {
-                          // Wenn alle Validatoren der Felder des Formulars gültig sind.
                           if (_formKey.currentState!.validate()) {
                             print(
                                 "Formular ist gültig und kann verarbeitet werden");
@@ -249,7 +248,6 @@ class _formProtokoll extends State<formProtokoll> {
                                   primary: Colors.blue,
                                   textStyle: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
                                 if (_formKey.currentState!.validate()) {
                                   print("Formular ist gültig und kann verarbeitet werden");
                                   if(_character == SingingCharacter.protokollBahn) {
@@ -381,7 +379,6 @@ class _formBahnOrt extends State<formBahnOrt> {
                               primary: Colors.blue,
                               textStyle: TextStyle(color: Colors.white)),
                           onPressed: () {
-                            // Wenn alle Validatoren der Felder des Formulars gültig sind.
                             if (_formKey.currentState!.validate()) {
                               print(
                                   "Formular ist gültig und kann verarbeitet werden");
@@ -537,7 +534,6 @@ class _formBahnAthlet extends State<formBahnAthlet> {
                             primary: Colors.blue,
                             textStyle: TextStyle(color: Colors.white)),
                         onPressed: () {
-                          // Wenn alle Validatoren der Felder des Formulars gültig sind.
                           if (_formKey.currentState!.validate()) {
                             print(
                                 "Formular ist gültig und kann verarbeitet werden");
@@ -672,7 +668,6 @@ class _formBahnVorfall extends State<formBahnVorfall> {
                             primary: Colors.blue,
                             textStyle: TextStyle(color: Colors.white)),
                         onPressed: () {
-                          // Wenn alle Validatoren der Felder des Formulars gültig sind.
                           if (_formKey.currentState!.validate()) {
                             print(
                                 "Formular ist gültig und kann verarbeitet werden");
@@ -780,7 +775,6 @@ class _formBahnVorfall_unerlUnterst extends State<formBahnVorfall_unerlUnterst> 
                                   primary: Colors.blue,
                                   textStyle: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
                                 if (_formKey.currentState!.validate()) {
                                   print(
                                       "Formular ist gültig und kann verarbeitet werden");
@@ -885,7 +879,6 @@ class _formBahnVorfall_behinderung extends State<formBahnVorfall_behinderung> {
                                   primary: Colors.blue,
                                   textStyle: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
                                 if (_formKey.currentState!.validate()) {
                                   print(
                                       "Formular ist gültig und kann verarbeitet werden");
@@ -1040,7 +1033,6 @@ class _formBahnVorfall_bahnVerlassen extends State<formBahnVorfall_bahnVerlassen
                                   primary: Colors.blue,
                                   textStyle: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
                                 if (_formKey.currentState!.validate()) {
                                   print(
                                       "Formular ist gültig und kann verarbeitet werden");
@@ -1194,7 +1186,6 @@ class _formBahnVorfall_huerdenlaufHindernis extends State<formBahnVorfall_huerde
                                   primary: Colors.blue,
                                   textStyle: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
                                 if (_formKey.currentState!.validate()) {
                                   print(
                                       "Formular ist gültig und kann verarbeitet werden");
@@ -1320,7 +1311,6 @@ class _formBahnVorfall_sonstiges extends State<formBahnVorfall_sonstiges> {
                                   primary: Colors.blue,
                                   textStyle: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                // Wenn alle Validatoren der Felder des Formulars gültig sind.
                                 if (_formKey.currentState!.validate()) {
                                   print(
                                       "Formular ist gültig und kann verarbeitet werden");
@@ -1406,7 +1396,6 @@ class _formNameKari extends State<formNameKari> {
                             primary: Colors.blue,
                             textStyle: TextStyle(color: Colors.white)),
                         onPressed: () {
-                          // Wenn alle Validatoren der Felder des Formulars gültig sind.
                           if (_formKey.currentState!.validate()) {
                             print(
                                 "Formular ist gültig und kann verarbeitet werden");
