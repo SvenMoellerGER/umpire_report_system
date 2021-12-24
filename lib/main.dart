@@ -1149,8 +1149,8 @@ class _formNameKari extends State<formNameKari> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   TextFormField(
-                    maxLines: 5,
-                    maxLength: 120,
+                    maxLines: 1,
+                    maxLength: 30,
                     decoration: InputDecoration(
                       hintText: 'Dein Name',
                       border: OutlineInputBorder(),
