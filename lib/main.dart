@@ -129,49 +129,28 @@ class _formAllg extends State<formAllg> {
                   Text(
                     'Zeit des Vorfalls: ${_currentTime.format(context)}',
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.grey,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
-                        },
-                        child: Text('Zurueck'),
-                      ),
-                      SizedBox(width: 25),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            print(
-                                "Formular ist gültig und kann verarbeitet werden");
-                            {
-                              Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => formProtokoll()),
-                              );
-                            };
-                          } else {
-                            print("Formular ist nicht gültig");
-                          }
-                        },
-                        child: Text('Weiter'),
-                      )
-                    ],
-                  )
                 ],
               ),
             ),
           ),
-        ));
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formProtokoll()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+    );
   }
 }
 
@@ -226,49 +205,28 @@ class _formProtokoll extends State<formProtokoll> {
                             },
                           ),
                         ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => formAllg(title: 'formAllg',)), // TODO 'title' entfernen
-                                );
-                              },
-                              child: Text('Zurueck'),
-                            ),
-                            SizedBox(width: 25),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print("Formular ist gültig und kann verarbeitet werden");
-                                  if(_character == SingingCharacter.protokollBahn) {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => formBahnOrt()));
-                                  } else {
-                                    // TODO Seiten für Wechselprotokoll erstellen
-                                    //  Navigator.push(context, MaterialPageRoute(builder: (context) => formWechselVorfall()));
-                                }
-                                } else {
-                                  print("Formular ist nicht gültig");
-                                }
-                              },
-                              child: Text('Weiter'),
-                            )
-                          ],
-                        )
                       ]
                   ),
-                )
-            )
-        )
+                ),
+            ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              print("Formular ist gültig und kann verarbeitet werden");
+              if(_character == SingingCharacter.protokollBahn) {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => formBahnOrt()));
+              } else {
+                // TODO Seiten für Wechselprotokoll erstellen
+                //  Navigator.push(context, MaterialPageRoute(builder: (context) => formWechselVorfall()));
+              }
+            } else {
+              print("Formular ist nicht gültig");
+            }},
+          backgroundColor: Colors.deepOrange,
+          child: const Icon(Icons.arrow_forward_rounded),
+        ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -357,48 +315,27 @@ class _formBahnOrt extends State<formBahnOrt> {
                         border: OutlineInputBorder(),
                       ),
                     ),
-                    SizedBox(height: 30),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.grey,
-                              textStyle: TextStyle(color: Colors.white)),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => formProtokoll()),
-                            );
-                          },
-                          child: Text('Zurueck'),
-                        ),
-                        SizedBox(width: 25),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.blue,
-                              textStyle: TextStyle(color: Colors.white)),
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              print(
-                                  "Formular ist gültig und kann verarbeitet werden");
-                              {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnAthlet()),);
-                              };
-                            } else {
-                            print("Formular ist nicht gültig");
-                            }
-                          },
-                          child: Text('Weiter'),
-                        )
-                      ],
-                    )
                   ]
                 ),
-            )
-        )
-      )
+            ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formBahnAthlet()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -512,48 +449,27 @@ class _formBahnAthlet extends State<formBahnAthlet> {
                       });
                     },
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.grey,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => formBahnOrt()),
-                          );
-                        },
-                        child: Text('Zurueck'),
-                      ),
-                      SizedBox(width: 25),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            print(
-                                "Formular ist gültig und kann verarbeitet werden");
-                            {
-                              Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => formBahnVorfall()),);
-                            };
-                          } else {
-                          print("Formular ist nicht gültig");
-                          }
-                        },
-                        child: Text('Weiter'),
-                      )
-                    ],
-                  )
                 ],
-              )
-            )
-          )
-        )
+              ),
+            ),
+          ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formBahnVorfall()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -646,67 +562,44 @@ class _formBahnVorfall extends State<formBahnVorfall> {
                       },
                     ),
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.grey,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => formBahnAthlet()),
-                          );
-                        },
-                        child: Text('Zurueck'),
-                      ),
-                      SizedBox(width: 25),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            print(
-                                "Formular ist gültig und kann verarbeitet werden");
-                            {
-                              print('value ' + _character.toString());
-                              if (_character == SingingCharacter.unerlUnterst) {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall_unerlUnterst()),);
-                              } else if(_character == SingingCharacter.behinderung) {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall_behinderung()),);
-                              } else if(_character == SingingCharacter.bahnVerlassen) {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall_bahnVerlassen()),);
-                              } else if(_character == SingingCharacter.huerdenlauf) {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall_huerdenlaufHindernis()),);
-                              } else if(_character == SingingCharacter.sonstiges) {
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall_sonstiges()),);
-                              } else {
-                                print("### Hier ist etwas schief gelaufen!");
-                                Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => formNameKari()),);
-                              }
-                            }
-                          } else {
-                          print("Formular ist nicht gültig");
-                          }
-                        },
-                        child: Text('Weiter'),
-                      )
-                    ],
-                  )
                 ],
-              )
-            )
-          )
-        )
+              ),
+            ),
+          ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print(
+                "Formular ist gültig und kann verarbeitet werden");
+            {
+              print('value ' + _character.toString());
+              if (_character == SingingCharacter.unerlUnterst) {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => formBahnVorfall_unerlUnterst()),);
+              } else if(_character == SingingCharacter.behinderung) {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => formBahnVorfall_behinderung()),);
+              } else if(_character == SingingCharacter.bahnVerlassen) {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => formBahnVorfall_bahnVerlassen()),);
+              } else if(_character == SingingCharacter.huerdenlauf) {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => formBahnVorfall_huerdenlaufHindernis()),);
+              } else if(_character == SingingCharacter.sonstiges) {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => formBahnVorfall_sonstiges()),);
+              } else {
+                print("### Hier ist etwas schief gelaufen!");
+              }
+            }
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -753,48 +646,27 @@ class _formBahnVorfall_unerlUnterst extends State<formBahnVorfall_unerlUnterst> 
                             return null;
                           },
                         ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
-                                );
-                              },
-                              child: Text('Zurueck'),
-                            ),
-                            SizedBox(width: 25),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(
-                                      "Formular ist gültig und kann verarbeitet werden");
-                                  {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formNameKari()),);
-                                  };
-                                } else {
-                                  print("Formular ist nicht gültig");
-                                }
-                              },
-                              child: Text('Weiter'),
-                            )
-                          ],
-                        )
-                      ]
+                      ],
                   ),
-                )
-            )
-        )
+                ),
+            ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formNameKari()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -857,48 +729,27 @@ class _formBahnVorfall_behinderung extends State<formBahnVorfall_behinderung> {
                             return null;
                           },
                         ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
-                                );
-                              },
-                              child: Text('Zurueck'),
-                            ),
-                            SizedBox(width: 25),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(
-                                      "Formular ist gültig und kann verarbeitet werden");
-                                  {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formNameKari()),);
-                                  };
-                                } else {
-                                  print("Formular ist nicht gültig");
-                                }
-                              },
-                              child: Text('Weiter'),
-                            )
-                          ],
-                        )
-                      ]
+                      ],
                   ),
-                )
-            )
-        )
+                ),
+            ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formNameKari()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -1011,48 +862,27 @@ class _formBahnVorfall_bahnVerlassen extends State<formBahnVorfall_bahnVerlassen
                         ),
                         SizedBox(height: 30),
                         // TODO 1x Textfeld (number) für Länge
-                        //SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
-                                );
-                              },
-                              child: Text('Zurueck'),
-                            ),
-                            SizedBox(width: 25),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(
-                                      "Formular ist gültig und kann verarbeitet werden");
-                                  {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formNameKari()),);
-                                  };
-                                } else {
-                                  print("Formular ist nicht gültig");
-                                }
-                              },
-                              child: Text('Weiter'),
-                            )
-                          ],
-                        )
-                      ]
+                      ],
                   ),
-                )
-            )
-        )
+                ),
+            ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formNameKari()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -1164,48 +994,27 @@ class _formBahnVorfall_huerdenlaufHindernis extends State<formBahnVorfall_huerde
                         ),
                         SizedBox(height: 30),
                         // TODO Row mit 2x checkbox "Hand" und "mit dem Fuß"
-                        //SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
-                                );
-                              },
-                              child: Text('Zurueck'),
-                            ),
-                            SizedBox(width: 25),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(
-                                      "Formular ist gültig und kann verarbeitet werden");
-                                  {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formNameKari()),);
-                                  };
-                                } else {
-                                  print("Formular ist nicht gültig");
-                                }
-                              },
-                              child: Text('Weiter'),
-                            )
-                          ],
-                        )
-                      ]
+                      ],
                   ),
-                )
-            )
-        )
+                ),
+            ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formNameKari()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -1289,48 +1098,27 @@ class _formBahnVorfall_sonstiges extends State<formBahnVorfall_sonstiges> {
                             return null;
                           },
                         ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => formBahnVorfall()),
-                                );
-                              },
-                              child: Text('Zurueck'),
-                            ),
-                            SizedBox(width: 25),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue,
-                                  textStyle: TextStyle(color: Colors.white)),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  print(
-                                      "Formular ist gültig und kann verarbeitet werden");
-                                  {
-                                    Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => formNameKari()),);
-                                  };
-                                } else {
-                                  print("Formular ist nicht gültig");
-                                }
-                              },
-                              child: Text('Weiter'),
-                            )
-                          ],
-                        )
-                      ]
+                      ],
                   ),
-                )
-            )
-        )
+                ),
+            ),
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => formNameKari()),
+              );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        child: const Icon(Icons.arrow_forward_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
@@ -1374,48 +1162,29 @@ class _formNameKari extends State<formNameKari> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.grey,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => formBahnVorfall()),
-                          );
-                        },
-                        child: Text('Zurueck'),
-                      ),
-                      SizedBox(width: 25),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
-                            textStyle: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            print(
-                                "Formular ist gültig und kann verarbeitet werden");
-                            // {
-                            //   Navigator.push(context,
-                            //     MaterialPageRoute(builder: (context) => #####()),); // TODO Seite einfügen
-                            // };
-                          } else {
-                          print("Formular ist nicht gültig");
-                          }
-                        },
-                        child: Text('Abschließen'),
-                      )
-                    ],
-                  )
                 ],
-              )
-            )
-          )
-        )
+              ),
+            ),
+          ),
+        ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            print("Formular ist gültig und kann verarbeitet werden");
+            {
+              // TODO Route einfügen
+              // Navigator.push(context,
+              //   MaterialPageRoute(builder: (context) => formNameKari()),
+              // );
+            };
+          } else {
+            print("Formular ist nicht gültig");
+          }},
+        backgroundColor: Colors.deepOrange,
+        label: const Text('Abschließen'),
+        icon: const Icon(Icons.save_rounded),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
