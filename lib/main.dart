@@ -12,10 +12,7 @@ void main() {
   ));
 }
 
-enum SingingCharacter { protokollBahn, protokollWechsel, zielgerade, gegengerade, kurvenachdemstart, kurvevordemziel,
-  unerlUnterst, behinderung, bahnVerlassen, huerdenlauf, hindernis, sonstiges, eigeneBahn,
-  bordkante, bahnVorUebergangslinie, bahnVerlassenGruppenstart, 
-  hueNebenbahn, hueUeberlaufen, hueNichtRegelgerechtUeberlaufen, hueUmgestossen, hiNichtRegelgerechtUeberlaufen }
+enum SingingCharacter { protokollBahn, protokollWechsel, }
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
