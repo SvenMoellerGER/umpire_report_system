@@ -415,39 +415,49 @@ class _formBahnAthlet extends State<formBahnAthlet> {
                     },
                   ),
                   SizedBox(height: 30),
-                  DropdownButton<String>(
-                    focusColor:Colors.white,
-                    value: _chosenValue,
-                    //elevation: 5,
-                    style: TextStyle(color: Colors.white),
-                    iconEnabledColor:Colors.black,
-                    items: <String>[
-                      '1',
-                      '2',
-                      '3',
-                      '4',
-                      '5',
-                      '6',
-                      '7',
-                      '8',
-                    ].map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value,style:TextStyle(color:Colors.black),),
-                      );
-                    }).toList(),
-                    hint:Text(
-                      "auf Bahn",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    onChanged: (String? value) {
-                      setState(() {
-                        _chosenValue = value!;
-                      });
-                    },
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'auf Bahn:',
+                        ),
+                        SizedBox(width: 20,),
+                        DropdownButton<String>(
+                          focusColor:Colors.white,
+                          value: _chosenValue,
+                          //elevation: 5,
+                          style: TextStyle(color: Colors.white),
+                          iconEnabledColor:Colors.black,
+                          items: <String>[
+                            '1',
+                            '2',
+                            '3',
+                            '4',
+                            '5',
+                            '6',
+                            '7',
+                            '8',
+                          ].map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value,style:TextStyle(color:Colors.black),),
+                            );
+                          }).toList(),
+                          hint:Text(
+                            "Bahn eingeben",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 14,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          onChanged: (String? value) {
+                            setState(() {
+                              _chosenValue = value!;
+                            });
+                          },
+                        ),
+                      ]
                   ),
                 ],
               ),
