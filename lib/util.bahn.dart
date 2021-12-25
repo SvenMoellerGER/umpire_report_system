@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 
 import 'main.dart';
 
-enum SingingCharacter { protokollBahn, protokollWechsel, zielgerade, gegengerade, kurvenachdemstart, kurvevordemziel,
-  unerlUnterst, behinderung, bahnVerlassen, huerdenlauf, hindernis, sonstiges, eigeneBahn,
+enum SingingCharacter { zielgerade, gegengerade, kurvenachdemstart, kurvevordemziel,
+  unerlUnterst, behinderung, bahnVerlassen, huerdenlauf, hindernis, sonstigesBahn, eigeneBahn,
   bordkante, bahnVorUebergangslinie, bahnVerlassenGruppenstart,
   hueNebenbahn, hueUeberlaufen, hueNichtRegelgerechtUeberlaufen, hueUmgestossen, hiNichtRegelgerechtUeberlaufen }
 
@@ -338,7 +338,7 @@ class _formBahnVorfall extends State<formBahnVorfall> {
                 ListTile(
                   title: const Text('Sonstiges'),
                   leading: Radio<SingingCharacter>(
-                    value: SingingCharacter.sonstiges,
+                    value: SingingCharacter.sonstigesBahn,
                     groupValue: _character,
                     onChanged: (SingingCharacter? value) {
                       setState(() {
@@ -371,7 +371,7 @@ class _formBahnVorfall extends State<formBahnVorfall> {
               } else if(_character == SingingCharacter.huerdenlauf) {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => formBahnVorfall_huerdenlaufHindernis()),);
-              } else if(_character == SingingCharacter.sonstiges) {
+              } else if(_character == SingingCharacter.sonstigesBahn) {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => formBahnVorfall_sonstiges()),);
               } else {
