@@ -217,8 +217,7 @@ class _formProtokoll extends State<formProtokoll> {
               if(_character == SingingCharacter.protokollBahn) {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => formBahnOrt()));
               } else {
-                // TODO Seiten für Wechselprotokoll erstellen
-                //  Navigator.push(context, MaterialPageRoute(builder: (context) => formWechselVorfall()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => formWechselVorfall()));
               }
             } else {
               print("Formular ist nicht gültig");
